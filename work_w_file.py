@@ -62,7 +62,7 @@ def alter_line(words, alter):
     rewrite = False
     with open(INFILE, encoding=ENC) as infile, open(OUTFILE, 'w', encoding=ENC) as outfile:
         for line in infile:
-            if not rewrite and str(info[0]) in str(line) and str(info[1]) in str(line):
+            if not rewrite and str(info[0]) in str(line):
                 if alter:
                     new_line = str(input("На кого хотите заменить? "))
                     if check(new_line):
@@ -71,6 +71,7 @@ def alter_line(words, alter):
                     else:
                         return -1
                 else:
+                    line=""
                     print("Строка успешно удалена")
                 rewrite = True
             elif len(line) > 2: # проверка на пустую линию
